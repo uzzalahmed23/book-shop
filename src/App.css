@@ -1,42 +1,93 @@
-#root {
-  max-width: 1280px;
+.agency-review-slider {
+  max-width: 918px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.agency-review-slider article._review.swiper-slide {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 50px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.agency-review-slider ul._review-stars {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: start;
+}
+
+.agency-review-slider ul._review-stars {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  align-items: start;
+  gap: 5px;
+}
+
+ul._review-stars li._review-star {
+  color: #f99300;
+}
+
+.agency-review-slider .swiper-wrapper {
+  padding: 60px 0;
+}
+.agency-review-slider article._review.swiper-slide p {
+  color: #3d4c5e !important;
+}
+
+.agency-review-slider .swiper-slide {
+  border: 1px solid #3dbb4c;
+  border-radius: 8px;
+}
+.agency-review-slider ._review-info {
+  padding: 10px;
+}
+
+._review-media img {
+  object-fit: cover;
+  height: 100%;
+}
+
+.agency-review-slider h6._review-author-name {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  color: #090b0e;
+  margin-top: 8px;
+}
+
+.agency-review-slider ._review-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.agency-review-slider .swiper-pagination-bullet {
+  height: 10px;
+  width: 10px;
+  background: #3dbb4c;
+}
+.agency-review-slider .swiper-pagination-bullet-active {
+  outline: 5px solid #ffffff !important;
+}
+/* desktop  */
+
+@media only screen and (min-width: 992px) {
+  .agency-review-slider article._review.swiper-slide {
+    gap: 20px;
   }
-  to {
-    transform: rotate(360deg);
+  .agency-review-slider ._review-info {
+    padding: 24px;
+  }
+
+  .agency-review-slider ul._review-stars {
+    gap: 8px;
   }
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+@media only screen and (min-width: 1200px) {
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.contact-info:hover .contact-inner p,
+.contact-info:hover .contact-inner h3,
+.contact-info:hover .contact-inner .elementor-icon.elementor-animation- svg {
+  color: #fff;
 }
