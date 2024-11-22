@@ -3,14 +3,19 @@ import checkOut from "../assets/icons/checkout.svg"
 import { BookContext } from '../context'
 import { getImgUrl } from '../utils/book-utility';
 import Delete from "../assets/delete.svg"
-
+import { toast } from 'react-toastify';
 function CartDetails({ onClose }) {
-
-  const { cartData, setCartData } = useContext(BookContext);
+  const { state, dispatch } = useContext(BookContext);
 
   const handleBookDataDelete = (book) => {
-    const dataAfterDelete = cartData.filter((data) => data != book);
-    setCartData([...dataAfterDelete]);
+    dispatch(
+      {
+        type: "REMOVE_FROM_CART",
+        payload: book
+
+      }
+    )
+    toast.warn(`${book.name}" বইটি কার্ড থেকে ডিলিট করা হয়েছে"`)
   }
 
   return (
@@ -28,7 +33,7 @@ function CartDetails({ onClose }) {
             className="space-y-8 lg:space-y-12 max-h-[450px] overflow-auto mb-10 lg:mb-14"
           >
             {
-              cartData.length === 0 ? <p className='text-2xl text-red-500 font-medium'> কোন বই ব্যাগে ভরেননি </p> : cartData.map((book) => <div key={book.id} className="grid grid-cols-[1fr_auto] gap-4">
+              state.cartData.length === 0 ? <p className='text-2xl text-red-500 font-medium'> আপনার ব্যাগে কোন বই নাই ☹️ </p> : state.cartData.map((book) => <div key={book.id} className="grid grid-cols-[1fr_auto] gap-4">
                 <div className="flex items-center gap-4">
                   <img
                     className="rounded overflow-hidden"

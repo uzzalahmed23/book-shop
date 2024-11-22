@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .dark {
-  @apply bg-black text-white;
+  @apply bg-black text-white transition-all duration-500;
 }

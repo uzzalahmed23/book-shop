@@ -7,12 +7,14 @@ import CartDetails from "./CartDetails"
 import { useContext, useState } from "react"
 import { BookContext, ThemeContext } from "../context"
 export default function Header() {
-    const { cartData } = useContext(BookContext)
+    const { state, dispatch } = useContext(BookContext)
     const { darkMode, setDarkMode } = useContext(ThemeContext)
     const [showCart, setShowCart] = useState(false);
     const handleShowCart = () => {
         setShowCart(true)
     }
+    console.log('from header', state);
+
 
     return (
         <header>
@@ -38,7 +40,7 @@ export default function Header() {
                     <li>
                         <a className="bg-primary/20 dark:bg-primary/[7%] rounded-lg backdrop-blur-[2px] p-1 inline-block relative" href="#" onClick={handleShowCart}>
                             <img src={shoppingCart} width="24" height="24" alt="" />
-                            <p className="absolute bg-primary size-8 flex justify-center items-center rounded-full text-slate-600 font-semibold -top-5 left-6"> {cartData.length}</p>
+                            <p className="absolute bg-primary size-8 flex justify-center items-center rounded-full text-slate-600 font-semibold -top-5 left-6"> {state.cartData.length}</p>
 
                         </a>
                     </li>
