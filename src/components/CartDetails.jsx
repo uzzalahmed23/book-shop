@@ -6,18 +6,15 @@ import Delete from "../assets/delete.svg"
 import { toast } from 'react-toastify';
 function CartDetails({ onClose }) {
   const { state, dispatch } = useContext(BookContext);
-
   const handleBookDataDelete = (book) => {
     dispatch(
       {
         type: "REMOVE_FROM_CART",
         payload: book
-
       }
     )
     toast.warn(`${book.name}" বইটি কার্ড থেকে ডিলিট করা হয়েছে"`)
   }
-
   return (
     <div
       className="fixed top-0 left-0 w-screen h-screen z-50 bg-black/60 backdrop-blur-sm"
@@ -60,7 +57,6 @@ function CartDetails({ onClose }) {
                 </div>
               </div>)
             }
-
           </div>
           <div className="flex items-center justify-end gap-2">
             <a
@@ -82,5 +78,4 @@ function CartDetails({ onClose }) {
     </div>
   )
 }
-
 export default CartDetails
